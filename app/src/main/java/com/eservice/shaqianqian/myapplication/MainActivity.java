@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         tab = actionBar.newTab().setText("Artist").setTabListener(new TabListener<ArtistFragment>(getApplicationContext(), "page2", ArtistFragment.class));
         actionBar.addTab(tab);
     }
-
+//Le listener de actionbar
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
 
@@ -39,10 +39,7 @@ public class MainActivity extends AppCompatActivity {
 
         searchView = (SearchView) MenuItemCompat.getActionView(menuItem);
 
-        //可以针对searchView设置相应的监听函数
-        //....searchView
-
-        //设置折叠监听函数
+        //le listener pour searchview
         MenuItemCompat.setOnActionExpandListener(menuItem, new MenuItemCompat.OnActionExpandListener() {
             @Override
             public boolean onMenuItemActionExpand(MenuItem item) {
@@ -82,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onCreateOptionsMenu(menu);
     }
+    //chaque fois quand utilisateur clique un bouton en menu, la systeme va appeler la methode selon le choix
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
@@ -102,7 +100,7 @@ public class MainActivity extends AppCompatActivity {
         }
 
     }
-
+//le listener de tab
     static class TabListener<T extends Fragment> implements ActionBar.TabListener {
 
         private Fragment mFragment;

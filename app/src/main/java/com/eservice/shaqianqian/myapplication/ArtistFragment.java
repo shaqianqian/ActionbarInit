@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 public class ArtistFragment extends Fragment {
 
-
+  //ici on cree un fragement pour le tab<Artist>
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
