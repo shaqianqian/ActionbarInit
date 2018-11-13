@@ -1,7 +1,5 @@
 package com.eservice.shaqianqian.myapplication;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -18,9 +16,9 @@ public class Tab1Fragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         View view;
-        view = inflater.inflate(R.layout.musique, container, false);
+        view = inflater.inflate(R.layout.tab_layout, container, false);
         TextView ville = (TextView) view.findViewById(R.id.textView);
-        ville.setText("album");
+        ville.setText("Lille");
         return view;
     }
 

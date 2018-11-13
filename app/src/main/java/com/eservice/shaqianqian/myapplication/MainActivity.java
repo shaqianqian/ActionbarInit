@@ -20,11 +20,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ActionBar actionBar = getSupportActionBar();
+        actionBar.setTitle("Weather");
+        actionBar.setSubtitle("Meteo");
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab;
-        tab = actionBar.newTab().setText("Album").setTabListener(new TabListener<Tab1Fragment>(getApplicationContext(), "page1", Tab1Fragment.class));
+        tab = actionBar.newTab().setText("Lille").setTabListener(new TabListener<Tab1Fragment>(getApplicationContext(), "page1", Tab1Fragment.class));
         actionBar.addTab(tab);
-        tab = actionBar.newTab().setText("Artist").setTabListener(new TabListener<Tab2Fragment>(getApplicationContext(), "page2", Tab2Fragment.class));
+        tab = actionBar.newTab().setText("Paris").setTabListener(new TabListener<Tab2Fragment>(getApplicationContext(), "page2", Tab2Fragment.class));
+        actionBar.addTab(tab);
+        tab = actionBar.newTab().setText("Lyon").setTabListener(new TabListener<Tab3Fragment>(getApplicationContext(), "page3", Tab3Fragment.class));
         actionBar.addTab(tab);
     }
 //Le listener de actionbar

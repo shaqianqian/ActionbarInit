@@ -15,9 +15,9 @@ public class Tab2Fragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         View view;
-        view = inflater.inflate(R.layout.musique, container, false);
+        view = inflater.inflate(R.layout.tab_layout, container, false);
         TextView ville = (TextView) view.findViewById(R.id.textView);
-        ville.setText("artist");
+        ville.setText("Paris");
         return view;
     }
 
