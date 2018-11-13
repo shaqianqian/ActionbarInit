@@ -22,9 +22,9 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
         ActionBar.Tab tab;
-        tab = actionBar.newTab().setText("Album").setTabListener(new TabListener<AlbumFragment>(getApplicationContext(), "page1", AlbumFragment.class));
+        tab = actionBar.newTab().setText("Album").setTabListener(new TabListener<Tab1Fragment>(getApplicationContext(), "page1", Tab1Fragment.class));
         actionBar.addTab(tab);
-        tab = actionBar.newTab().setText("Artist").setTabListener(new TabListener<ArtistFragment>(getApplicationContext(), "page2", ArtistFragment.class));
+        tab = actionBar.newTab().setText("Artist").setTabListener(new TabListener<Tab2Fragment>(getApplicationContext(), "page2", Tab2Fragment.class));
         actionBar.addTab(tab);
     }
 //Le listener de actionbar
@@ -95,40 +95,40 @@ public class MainActivity extends AppCompatActivity {
             case R.id.menu_update:
                 Toast.makeText(this, "update", Toast.LENGTH_SHORT).show();
                 return true;
-            default:
-                return super.onOptionsItemSelected(item);
+    default:
+            return super.onOptionsItemSelected(item);
+}
+
+}
+//le listener de tab
+static class TabListener<T extends Fragment> implements ActionBar.TabListener {
+
+    private Fragment mFragment;
+    private Context mContext;
+    private final String mTag;
+    private final Class<T> mClass;
+
+
+    public TabListener(Context context, String tag, Class<T> clazz) {
+        mContext = context;
+        mTag = tag;
+        mClass = clazz;
+    }
+
+    @Override
+    public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
+
+        if (mFragment == null) {
+            mFragment = Fragment.instantiate(mContext, mClass.getName());
+            ft.add(R.id.fragment_content, mFragment, mTag);
+        } else {
+            ft.attach(mFragment);
         }
 
     }
-//le listener de tab
-    static class TabListener<T extends Fragment> implements ActionBar.TabListener {
-
-        private Fragment mFragment;
-        private Context mContext;
-        private final String mTag;
-        private final Class<T> mClass;
 
 
-        public TabListener(Context context, String tag, Class<T> clazz) {
-            mContext = context;
-            mTag = tag;
-            mClass = clazz;
-        }
-
-        @Override
-        public void onTabSelected(ActionBar.Tab tab, FragmentTransaction ft) {
-
-            if (mFragment == null) {
-                mFragment = Fragment.instantiate(mContext, mClass.getName());
-                ft.add(R.id.fragment_content, mFragment, mTag);
-            } else {
-                ft.attach(mFragment);
-            }
-
-        }
-
-
-        @Override
+    @Override
         public void onTabUnselected(ActionBar.Tab tab, FragmentTransaction ft) {
             if (mFragment != null) {
                 ft.detach(mFragment);
