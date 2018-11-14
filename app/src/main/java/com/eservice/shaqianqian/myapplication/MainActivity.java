@@ -38,6 +38,8 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
         MenuItem menuItem;
+
+
         SearchView searchView;
         menuItem = menu.findItem(R.id.menu_search);
 
